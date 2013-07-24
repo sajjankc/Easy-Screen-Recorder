@@ -25,11 +25,13 @@
         ESRHomeVC *homeVC = [[ESRHomeVC alloc]initWithNibName:@"ESRHomeVC" bundle:nil];
         UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:homeVC];
         homeNav.tabBarItem.title = @"Home";
+        homeNav.navigationBar.barStyle = UIBarStyleBlack;
         
         ESRMoreVC *moreVC = [[ESRMoreVC alloc]initWithNibName:@"ESRMoreVC" bundle:nil];
         UINavigationController *moreNav = [[UINavigationController alloc]initWithRootViewController:moreVC];
         moreNav.navigationBar.backgroundColor = [UIColor blackColor];
         moreNav.tabBarItem.title = @"More";
+        moreNav.navigationBar.barStyle = UIBarStyleBlack;
         
         self.tabBarController.viewControllers = [NSArray arrayWithObjects:homeNav, moreNav, nil];
     } else {
