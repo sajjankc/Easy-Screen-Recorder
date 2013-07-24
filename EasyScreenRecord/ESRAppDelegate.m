@@ -7,13 +7,36 @@
 //
 
 #import "ESRAppDelegate.h"
+#import "ESRHomeVC.h"
+#import "ESRMoreVC.h"
 
 @implementation ESRAppDelegate
+
+@synthesize tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.tabBarController = [[UITabBarController alloc]init];
+    self.tabBarController.delegate = self;
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        ESRHomeVC *homeVC = [[ESRHomeVC alloc]initWithNibName:@"ESRHomeVC" bundle:nil];
+        UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:homeVC];
+        homeNav.tabBarItem.title = @"Home";
+        
+        ESRMoreVC *moreVC = [[ESRMoreVC alloc]initWithNibName:@"ESRMoreVC" bundle:nil];
+        UINavigationController *moreNav = [[UINavigationController alloc]initWithRootViewController:moreVC];
+        moreNav.navigationBar.backgroundColor = [UIColor blackColor];
+        moreNav.tabBarItem.title = @"More";
+        
+        self.tabBarController.viewControllers = [NSArray arrayWithObjects:homeNav, moreNav, nil];
+    } else {
+        //load ViewControllers for iPad.
+    }
+    
+    self.window.rootViewController = self.tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

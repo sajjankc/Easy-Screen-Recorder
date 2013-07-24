@@ -16,6 +16,10 @@
 		A8816CCB179EDB6D0004E20D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A8816CCA179EDB6D0004E20D /* Default.png */; };
 		A8816CCD179EDB6D0004E20D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8816CCC179EDB6D0004E20D /* Default@2x.png */; };
 		A8816CCF179EDB6D0004E20D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8816CCE179EDB6D0004E20D /* Default-568h@2x.png */; };
+		A8816CD9179EDC000004E20D /* ESRHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8816CD7179EDC000004E20D /* ESRHomeVC.m */; };
+		A8816CDA179EDC000004E20D /* ESRHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8816CD8179EDC000004E20D /* ESRHomeVC.xib */; };
+		A8816CDE179EDC3D0004E20D /* ESRMoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8816CDC179EDC3D0004E20D /* ESRMoreVC.m */; };
+		A8816CDF179EDC3D0004E20D /* ESRMoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8816CDD179EDC3D0004E20D /* ESRMoreVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,12 @@
 		A8816CCA179EDB6D0004E20D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A8816CCC179EDB6D0004E20D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A8816CCE179EDB6D0004E20D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A8816CD6179EDC000004E20D /* ESRHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRHomeVC.h; sourceTree = "<group>"; };
+		A8816CD7179EDC000004E20D /* ESRHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRHomeVC.m; sourceTree = "<group>"; };
+		A8816CD8179EDC000004E20D /* ESRHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESRHomeVC.xib; sourceTree = "<group>"; };
+		A8816CDB179EDC3D0004E20D /* ESRMoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRMoreVC.h; sourceTree = "<group>"; };
+		A8816CDC179EDC3D0004E20D /* ESRMoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRMoreVC.m; sourceTree = "<group>"; };
+		A8816CDD179EDC3D0004E20D /* ESRMoreVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESRMoreVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,7 @@
 		A8816CBE179EDB6D0004E20D /* EasyScreenRecord */ = {
 			isa = PBXGroup;
 			children = (
+				A8816CD5179EDBE20004E20D /* ViewControllers */,
 				A8816CC7179EDB6D0004E20D /* ESRAppDelegate.h */,
 				A8816CC8179EDB6D0004E20D /* ESRAppDelegate.m */,
 				A8816CBF179EDB6D0004E20D /* Supporting Files */,
@@ -98,6 +109,19 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		A8816CD5179EDBE20004E20D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A8816CD6179EDC000004E20D /* ESRHomeVC.h */,
+				A8816CD7179EDC000004E20D /* ESRHomeVC.m */,
+				A8816CD8179EDC000004E20D /* ESRHomeVC.xib */,
+				A8816CDB179EDC3D0004E20D /* ESRMoreVC.h */,
+				A8816CDC179EDC3D0004E20D /* ESRMoreVC.m */,
+				A8816CDD179EDC3D0004E20D /* ESRMoreVC.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -155,6 +179,8 @@
 				A8816CCB179EDB6D0004E20D /* Default.png in Resources */,
 				A8816CCD179EDB6D0004E20D /* Default@2x.png in Resources */,
 				A8816CCF179EDB6D0004E20D /* Default-568h@2x.png in Resources */,
+				A8816CDA179EDC000004E20D /* ESRHomeVC.xib in Resources */,
+				A8816CDF179EDC3D0004E20D /* ESRMoreVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +193,8 @@
 			files = (
 				A8816CC5179EDB6D0004E20D /* main.m in Sources */,
 				A8816CC9179EDB6D0004E20D /* ESRAppDelegate.m in Sources */,
+				A8816CD9179EDC000004E20D /* ESRHomeVC.m in Sources */,
+				A8816CDE179EDC3D0004E20D /* ESRMoreVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +276,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyScreenRecord/EasyScreenRecord-Prefix.pch";
 				INFOPLIST_FILE = "EasyScreenRecord/EasyScreenRecord-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -259,6 +288,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EasyScreenRecord/EasyScreenRecord-Prefix.pch";
 				INFOPLIST_FILE = "EasyScreenRecord/EasyScreenRecord-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -283,6 +313,7 @@
 				A8816CD4179EDB6D0004E20D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

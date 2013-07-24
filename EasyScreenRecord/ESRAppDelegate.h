@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ESRAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ESRAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UITabBarController *tabBarController;
 
 @end
