@@ -13,5 +13,5 @@ Now easily record your iOS application video for any special purpose
   at application start and ended only when you enter into background.
   
   *It works on both real device as well as simulator.
-  *Currently video is saved into Document Directory.
+  *It saves video in PhotoAlbum after recording stopped.
   *Totally AppStore safe.
