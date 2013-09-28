@@ -21,7 +21,13 @@ static ESRViewVideoHandler *_shareViewVideoHandler = nil;
 
 - (UIImage*)screenImage {
     //Get Image Context *not checked on retina devices but i think it works..
-    UIGraphicsBeginImageContextWithOptions([[UIApplication sharedApplication]keyWindow].bounds.size, NO, 0);
+    if([[UIScreen mainScreen]scale] > 1.5) {
+        UIGraphicsBeginImageContextWithOptions([[UIApplication sharedApplication]keyWindow].bounds.size, NO, 1.0);
+    } else {
+        UIGraphicsBeginImageContext([[UIApplication sharedApplication]keyWindow].bounds.size);
+    }
+
+//    UIGraphicsBeginImageContextWithOptions([[UIApplication sharedApplication]keyWindow].bounds.size, NO, 0);
     [[[UIApplication sharedApplication]keyWindow].layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

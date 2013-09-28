@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>05377E35-D691-407F-A7B5-7D97784EF7C1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EasyScreenRecord</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>68851EE1-1A16-4F41-BB3A-3A3AA0C6DCD5</key>
+		<string>ssh://https///github.com/sajjankc/Easy-Screen-Recorder.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EasyScreenRecord.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>68851EE1-1A16-4F41-BB3A-3A3AA0C6DCD5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://https///github.com/sajjankc/Easy-Screen-Recorder.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>68851EE1-1A16-4F41-BB3A-3A3AA0C6DCD5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>68851EE1-1A16-4F41-BB3A-3A3AA0C6DCD5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EasyScreenRecord</string>
+		</dict>
+	</array>
+</dict>
+</plist>
