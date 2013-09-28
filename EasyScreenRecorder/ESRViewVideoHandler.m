@@ -26,8 +26,6 @@ static ESRViewVideoHandler *_shareViewVideoHandler = nil;
     } else {
         UIGraphicsBeginImageContext([[UIApplication sharedApplication]keyWindow].bounds.size);
     }
-
-//    UIGraphicsBeginImageContextWithOptions([[UIApplication sharedApplication]keyWindow].bounds.size, NO, 0);
     [[[UIApplication sharedApplication]keyWindow].layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
