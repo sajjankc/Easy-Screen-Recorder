@@ -20,6 +20,10 @@
 		A882DAE517A03C2400076ED0 /* ESRHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A882DAE017A03C2400076ED0 /* ESRHomeVC.xib */; };
 		A882DAE617A03C2400076ED0 /* ESRMoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A882DAE217A03C2400076ED0 /* ESRMoreVC.m */; };
 		A882DAE717A03C2400076ED0 /* ESRMoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A882DAE317A03C2400076ED0 /* ESRMoreVC.xib */; };
+		A8A6FE3217AAC13900EE71F5 /* ESRViewVideoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A6FE3117AAC13900EE71F5 /* ESRViewVideoHandler.m */; };
+		A8A6FE3417AAC32400EE71F5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A6FE3317AAC32400EE71F5 /* AVFoundation.framework */; };
+		A8A6FE3817AAC39000EE71F5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A6FE3717AAC39000EE71F5 /* CoreVideo.framework */; };
+		A8A6FE3A17AAC3B900EE71F5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A6FE3917AAC3B900EE71F5 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,11 @@
 		A882DAE117A03C2400076ED0 /* ESRMoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRMoreVC.h; sourceTree = "<group>"; };
 		A882DAE217A03C2400076ED0 /* ESRMoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRMoreVC.m; sourceTree = "<group>"; };
 		A882DAE317A03C2400076ED0 /* ESRMoreVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESRMoreVC.xib; sourceTree = "<group>"; };
+		A8A6FE3017AAC13900EE71F5 /* ESRViewVideoHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESRViewVideoHandler.h; sourceTree = "<group>"; };
+		A8A6FE3117AAC13900EE71F5 /* ESRViewVideoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESRViewVideoHandler.m; sourceTree = "<group>"; };
+		A8A6FE3317AAC32400EE71F5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A8A6FE3717AAC39000EE71F5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A8A6FE3917AAC3B900EE71F5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A6FE3A17AAC3B900EE71F5 /* CoreMedia.framework in Frameworks */,
+				A8A6FE3817AAC39000EE71F5 /* CoreVideo.framework in Frameworks */,
+				A8A6FE3417AAC32400EE71F5 /* AVFoundation.framework in Frameworks */,
 				A8816CB9179EDB6D0004E20D /* UIKit.framework in Frameworks */,
 				A8816CBB179EDB6D0004E20D /* Foundation.framework in Frameworks */,
 				A8816CBD179EDB6D0004E20D /* CoreGraphics.framework in Frameworks */,
@@ -80,6 +92,9 @@
 		A8816CB7179EDB6D0004E20D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8A6FE3917AAC3B900EE71F5 /* CoreMedia.framework */,
+				A8A6FE3717AAC39000EE71F5 /* CoreVideo.framework */,
+				A8A6FE3317AAC32400EE71F5 /* AVFoundation.framework */,
 				A8816CB8179EDB6D0004E20D /* UIKit.framework */,
 				A8816CBA179EDB6D0004E20D /* Foundation.framework */,
 				A8816CBC179EDB6D0004E20D /* CoreGraphics.framework */,
@@ -127,6 +142,8 @@
 		A882DAE817A03CCD00076ED0 /* EasyScreenRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				A8A6FE3017AAC13900EE71F5 /* ESRViewVideoHandler.h */,
+				A8A6FE3117AAC13900EE71F5 /* ESRViewVideoHandler.m */,
 			);
 			path = EasyScreenRecorder;
 			sourceTree = "<group>";
@@ -203,6 +220,7 @@
 				A8816CC9179EDB6D0004E20D /* ESRAppDelegate.m in Sources */,
 				A882DAE417A03C2400076ED0 /* ESRHomeVC.m in Sources */,
 				A882DAE617A03C2400076ED0 /* ESRMoreVC.m in Sources */,
+				A8A6FE3217AAC13900EE71F5 /* ESRViewVideoHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
