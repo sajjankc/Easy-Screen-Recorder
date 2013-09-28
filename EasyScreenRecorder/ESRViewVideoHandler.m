@@ -165,6 +165,8 @@ static ESRViewVideoHandler *_shareViewVideoHandler = nil;
             [self cleanupWriter];
             NSString *outputPath = [[NSString alloc] initWithFormat:@"%@/%@", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0], @"AppVideo.mov"];
             self.outputURL = [NSURL fileURLWithPath:outputPath];
+            //save video to photoAlbum
+            UISaveVideoAtPathToSavedPhotosAlbum(outputPath,self,nil,nil);
             self.isRecording = NO;
         }
     }
