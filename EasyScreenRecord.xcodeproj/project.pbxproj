@@ -24,6 +24,7 @@
 		A8A6FE3417AAC32400EE71F5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A6FE3317AAC32400EE71F5 /* AVFoundation.framework */; };
 		A8A6FE3817AAC39000EE71F5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A6FE3717AAC39000EE71F5 /* CoreVideo.framework */; };
 		A8A6FE3A17AAC3B900EE71F5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A6FE3917AAC3B900EE71F5 /* CoreMedia.framework */; };
+		A8AB49471801DA5200995334 /* UIWindow+ESROverLay.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AB49461801DA5200995334 /* UIWindow+ESROverLay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		A8A6FE3317AAC32400EE71F5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A8A6FE3717AAC39000EE71F5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		A8A6FE3917AAC3B900EE71F5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A8AB49451801DA5200995334 /* UIWindow+ESROverLay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+ESROverLay.h"; sourceTree = "<group>"; };
+		A8AB49461801DA5200995334 /* UIWindow+ESROverLay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+ESROverLay.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 		A8816CAC179EDB6D0004E20D = {
 			isa = PBXGroup;
 			children = (
+				A8AB49441801DA5200995334 /* ESRCategory */,
 				A882DAE817A03CCD00076ED0 /* EasyScreenRecorder */,
 				A882DADD17A03C2400076ED0 /* ViewControllers */,
 				A8816CBE179EDB6D0004E20D /* EasyScreenRecord */,
@@ -148,6 +152,15 @@
 			path = EasyScreenRecorder;
 			sourceTree = "<group>";
 		};
+		A8AB49441801DA5200995334 /* ESRCategory */ = {
+			isa = PBXGroup;
+			children = (
+				A8AB49451801DA5200995334 /* UIWindow+ESROverLay.h */,
+				A8AB49461801DA5200995334 /* UIWindow+ESROverLay.m */,
+			);
+			path = ESRCategory;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,6 +234,7 @@
 				A882DAE417A03C2400076ED0 /* ESRHomeVC.m in Sources */,
 				A882DAE617A03C2400076ED0 /* ESRMoreVC.m in Sources */,
 				A8A6FE3217AAC13900EE71F5 /* ESRViewVideoHandler.m in Sources */,
+				A8AB49471801DA5200995334 /* UIWindow+ESROverLay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,10 +12,13 @@
 
 @interface ESRViewVideoHandler : NSObject
 
++ (ESRViewVideoHandler *)sharedViewVideoHandler;
 + (void) startScreenRecording;
 + (void) stopScreenRecording;
 
 @property (nonatomic, strong) UIImage *currentScreen;
+@property (nonatomic) CGPoint tapPoint;
+@property BOOL isTapped;
 
 //video writing
 @property (nonatomic, strong) AVAssetWriter *videoWriter;

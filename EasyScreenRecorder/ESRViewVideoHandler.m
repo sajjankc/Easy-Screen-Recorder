@@ -15,9 +15,9 @@
 
 @implementation ESRViewVideoHandler
 
-static ESRViewVideoHandler *_shareViewVideoHandler = nil;
+static ESRViewVideoHandler *_sharedViewVideoHandler = nil;
 
-@synthesize videoWriter, videoWriterInput, avAdaptor, isRecording, startedAt, bitmapData, outputURL, currentScreen;
+@synthesize videoWriter, videoWriterInput, avAdaptor, isRecording, startedAt, bitmapData, outputURL, currentScreen, tapPoint;
 
 - (UIImage*)screenImage {
     //Get Image Context *not checked on retina devices but i think it works..
@@ -26,15 +26,36 @@ static ESRViewVideoHandler *_shareViewVideoHandler = nil;
     } else {
         UIGraphicsBeginImageContext([[UIApplication sharedApplication]keyWindow].bounds.size);
     }
-    [[[UIApplication sharedApplication]keyWindow].layer renderInContext:UIGraphicsGetCurrentContext()];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [[[UIApplication sharedApplication]keyWindow].layer renderInContext:context];
+    
+    //draw circle on current context
+    if (!CGPointEqualToPoint([ESRViewVideoHandler sharedViewVideoHandler].tapPoint, CGPointZero) && ([ESRViewVideoHandler sharedViewVideoHandler].isTapped)) {
+        CGContextSetRGBFillColor(context, 255, 0, 0, 0.5);
+        CGContextSetRGBStrokeColor(context, 255, 0, 0, 0.1);
+        CGContextFillEllipseInRect(context, CGRectMake([ESRViewVideoHandler sharedViewVideoHandler].tapPoint.x-30, [ESRViewVideoHandler sharedViewVideoHandler].tapPoint.y-30, 60.0, 60.0)); //*** -30 for adjust circle center
+        CGContextFillPath(context);
+    }
+    [ESRViewVideoHandler sharedViewVideoHandler].isTapped = NO;
     UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return screenshotImage;
 }
 
++ (ESRViewVideoHandler *)sharedViewVideoHandler {
+    static ESRViewVideoHandler *_sharedViewVideoHandler = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _sharedViewVideoHandler = [[self alloc] init];
+    });
+    
+    return _sharedViewVideoHandler;
+}
+
 - (void) initialize {
     self.currentScreen = nil;
 	self.isRecording = NO;
+    self.isTapped = NO;
 	self.videoWriter = nil;
 	self.videoWriterInput = nil;
 	self.avAdaptor = nil;
@@ -48,35 +69,6 @@ static ESRViewVideoHandler *_shareViewVideoHandler = nil;
 		[self initialize];
 	}
 	return self;
-}
-
-- (CGContextRef) createBitmapContextOfSize:(CGSize) size {
-	CGContextRef context = NULL;
-	CGColorSpaceRef colorSpace;
-	int bitmapByteCount;
-	int bitmapBytesPerRow;
-	
-	bitmapBytesPerRow = (size.width * 4);
-	bitmapByteCount = (bitmapBytesPerRow * size.height);
-	colorSpace = CGColorSpaceCreateDeviceRGB();
-	if (self.bitmapData != NULL) {
-		free(self.bitmapData);
-	}
-	self.bitmapData = malloc( bitmapByteCount );
-	if (self.bitmapData == NULL) {
-		fprintf (stderr, "Memory not allocated!");
-		return NULL;
-	}
-	context = CGBitmapContextCreate (self.bitmapData,size.width, size.height,8,      // bits per component
-									 bitmapBytesPerRow, colorSpace, kCGImageAlphaNoneSkipFirst);
-	CGContextSetAllowsAntialiasing(context,NO);
-	if (context== NULL) {
-		free (self.bitmapData);
-		fprintf (stderr, "Context not created!");
-		return NULL;
-	}
-	CGColorSpaceRelease(colorSpace);
-	return context;
 }
 
 // get screenshot images afterDelay:0.5(change afterDelay time as your requirement currently it capture 2 screenshot each second) and write it to video (writeVideoFrameAtTimeThread)
@@ -179,15 +171,15 @@ static ESRViewVideoHandler *_shareViewVideoHandler = nil;
 + (void) startScreenRecording {
     bool result = NO;
     @synchronized([ESRViewVideoHandler class]) {
-        if (_shareViewVideoHandler == nil) {
-            _shareViewVideoHandler = [[ESRViewVideoHandler alloc] init];
+        if (_sharedViewVideoHandler == nil) {
+            _sharedViewVideoHandler = [[ESRViewVideoHandler alloc] init];
         }
-        @synchronized(_shareViewVideoHandler) {
-            if (!_shareViewVideoHandler.isRecording) {
-                result = [_shareViewVideoHandler setUpWriter];
-                _shareViewVideoHandler.startedAt = [NSDate date];
-                _shareViewVideoHandler.isRecording = YES;
-                [_shareViewVideoHandler makeVideoFrame];
+        @synchronized(_sharedViewVideoHandler) {
+            if (!_sharedViewVideoHandler.isRecording) {
+                result = [_sharedViewVideoHandler setUpWriter];
+                _sharedViewVideoHandler.startedAt = [NSDate date];
+                _sharedViewVideoHandler.isRecording = YES;
+                [_sharedViewVideoHandler makeVideoFrame];
             }
         }
     }
@@ -195,10 +187,10 @@ static ESRViewVideoHandler *_shareViewVideoHandler = nil;
 
 
 + (void) stopScreenRecording {
-    @synchronized(_shareViewVideoHandler) {
-        if (_shareViewVideoHandler.isRecording) {
-            _shareViewVideoHandler.isRecording = NO;
-            [_shareViewVideoHandler completeRecordingSession];
+    @synchronized(_sharedViewVideoHandler) {
+        if (_sharedViewVideoHandler.isRecording) {
+            _sharedViewVideoHandler.isRecording = NO;
+            [_sharedViewVideoHandler completeRecordingSession];
         }
     }
 }
